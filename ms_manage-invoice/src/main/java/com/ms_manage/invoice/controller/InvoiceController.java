@@ -61,6 +61,11 @@ public class InvoiceController {
 	public ModelAndView getAllInvoices(){
 		return new ModelAndView("invoicelist","invoices",dao.findAll());
 	}
+
+	@RequestMapping("/index")
+	public ModelAndView show(){
+		return new ModelAndView("invoicelist","invoices",dao.findAll());
+	}
 	
 	@RequestMapping(value ="/form", method = RequestMethod.GET)
 	public ModelAndView createInvoice(){
