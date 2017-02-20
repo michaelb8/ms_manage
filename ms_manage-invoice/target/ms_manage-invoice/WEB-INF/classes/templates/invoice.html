@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Order</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Order</h1>
+	<div layout:fragment="content" class="container">
+
+		<div class="row">
+			<div class="col-md-2">Customer</div>
+			<div class="col-md-2"
+				th:text="${@customerClient.getCustomer(invoice.customerId).name}"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">Anzahl Produkte</div>
+			<div class="col-md-2" th:text="${invoice.getNumberOfEntries()}"></div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-2 col-md-offset-1">Invoice Entries</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">Anzahl</div>
+			<div class="col-md-2">Produkt</div>
+			<div class="col-md-2">Preis</div>
+
+		</div>
+
+		<div class="row" th:each="invoiceEntry : ${invoice.entries}">
+			<div class="col-md-2" th:text="${orderLine.count}"></div>
+			<div class="col-md-2" th:text="${@productClient.getProduct(orderLine.itemId).name}"></div>
+			<div class="col-md-2" th:text="${@productClient.getProduct(orderLine.itemId).preis}"></div>
+		</div>
+	</div>
+</body>
+</html>
