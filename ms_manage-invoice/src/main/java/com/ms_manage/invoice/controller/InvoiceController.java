@@ -93,6 +93,12 @@ public class InvoiceController {
 		return new ModelAndView("done");
 	}
 	
+	@RequestMapping(value="/save", method = RequestMethod.POST)
+	public ModelAndView saveInvoice(Invoice inv){
+		invoiceService.saveInvoice(inv);
+		return new ModelAndView("done");
+	}
+	
 	@RequestMapping(value = "/line", method = RequestMethod.POST)
 	public ModelAndView addLine(Invoice inv) {
 		inv.addEntry(1, productClient.getAllProducts().iterator().next().getId());
