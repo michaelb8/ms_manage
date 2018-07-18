@@ -28,8 +28,8 @@
 						th:text="${invoice.customerId}">
 						Name</td>
 					<td th:text="${invoice.getNumberOfEntries()}">42.0</td>
-					<td><form th:action="'/delete/'+${invoice.id}" th:method="get">
-							<input type="hidden" name="_method" value="DELETE" />
+					<td><form action="#" th:action="@{'/{id}'(id=${invoice.id})}" th:method="delete">
+							<input type="hidden" name="_method" value="delete" />
 							<input type="submit" value="delete" class="btn btn-link" />
 						</form></td>
 				</tr>
