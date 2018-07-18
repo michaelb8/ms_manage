@@ -28,7 +28,7 @@
 						th:text="${invoice.customerId}">
 						Name</td>
 					<td th:text="${invoice.getNumberOfEntries()}">42.0</td>
-					<td><form action="#" th:action="@{'/{id}'(id=${invoice.id})}" th:method="delete">
+					<td><form action="#" th:action="@{'/delete/{id}'(id=${invoice.id})}" th:method="get">
 							<input type="submit" value="delete" class="btn btn-link" />
 						</form></td>
 				</tr>
